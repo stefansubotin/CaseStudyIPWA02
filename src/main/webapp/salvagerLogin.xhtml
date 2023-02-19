@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Bergende-Login</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="Bergende-Login:"/><br/>
+		<h:panelGrid columns="3">
+			<h:outputText value="Nutzername: "/>
+			<h:inputText id="userName" value="#{loginc.user.userName}">
+				<f:event type="postValidate" listener="#{loginc.postValidateUserName}"/>
+			</h:inputText>
+			<h:outputText id="errorName" value="#{loginc.errorUser}" style="color: red"/>
+			<h:outputText value="Passwort:  "/>
+			<h:inputSecret id="pass" value="#{loginc.user.password}" validator="#{loginc.validateLogin}"/>
+			<h:outputText id="errorPass" value="#{loginc.errorPassword}" style="color: red"/>
+		</h:panelGrid><br/>
+		<h:commandLink value="Als Bergender einloggen" action="#{loginc.login()}"/><br/><br/>
+		<h:commandLink value="Als Bergender registrieren" action="newSalvager.xhtml"/>
+	</h:form>
+</h:body>
+</html>

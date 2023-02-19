@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Melden: verlorenes Netz</title>
+</h:head>
+<h:body>
+	<h:outputText value="Bitte füllen Sie das folgende Formular mit Berücksichtigung folgender Vorgaben aus:"/><br/>
+	<h:outputText value="1. Alle Felder sind Pflicht"/><br/>
+	<h:outputText value="2. Bei Breitengraden Dezimalzahlen verwenden, mit positiven Zahlen für Nord und negativen Zahlen für Süd"/><br/>
+	<h:outputText value="3. Bei Längengraden Dezimalzahlen verwenden, mit positiven Zahlen für Ost und negativen Zahlen für West"/><br/>
+	<h:outputText value="4. Ungefähre Größe als Ganzzahl in Quadratmetern angeben"/><br/>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Netzidentifier:" for="netId"/>
+			<h:inputText id="netid" value="#{reportMissingc.net.name}"/>
+			<h:outputText id="errorId" value="#{reportMissingc.errorName}" style="color: red"/>
+			<h:outputLabel value="Letzte bekannte Position, Latitude:" for="latitude"/>
+			<h:inputText id="latitude" value="#{reportMissingc.net.latitude}" required="true"/>
+			<br/>
+			<h:outputLabel value="Letzte bekannte Position, Longitude:" for="longitude"/>
+			<h:inputText id="longitude" value="#{reportMissingc.net.longitude}" required="true"/>
+			<br/>
+			<h:outputLabel value="Ungefähre Größe:" for="estimatedSize"/>
+			<h:inputText id="estimatedSize" value="#{reportMissingc.net.estimatedSize}" required="true" validator="#{reportMissingc.validateSize}"/>
+			<h:outputText id="errorSize" value="#{reportMissingc.errorSize}" style="color: red"/>
+			<h:outputLabel value="Dein Name:" for="name"/>
+			<h:inputText id="name" value="#{reportMissingc.net.reportedBy}"/>
+			<h:outputText id="errorRep" value="#{reportMissingc.errorReporter}" style="color: red"/>
+			<h:outputLabel value="Telefonnummer:" for="phone"/>
+			<h:inputText id="phone" value="#{reportMissingc.net.reportersPhone}" validator="#{reportMissingc.validatePhone}"/>			
+			<h:outputText id="errorNum" value="#{reportMissingc.errorPhone}" style="color: red"/>
+		</h:panelGrid>
+		<h:commandLink value="Meldung abschließen" action="#{reportMissingc.completeReport()}"/><br/>
+		<h:commandLink value="Zurück zur Startseite" action="index.xhtml"/>
+	</h:form>
+</h:body>
+</html>
+

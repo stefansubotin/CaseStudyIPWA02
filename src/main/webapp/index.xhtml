@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Sea Sheperd: Geisternetze</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputText value="Netze melden:"/>
+			<h:commandLink value="Gefundenes Netz" action="reportFoundNet.xhtml"/>
+			<h:commandLink value="Verlorenes Netz" action="reportMissing.xhtml"/>
+			<h:outputText value="Bergende-Portal: "/>
+			<h:commandLink value="Login" action="salvagerLogin.xhtml"/>
+			<h:commandLink value="Registrierung" action="newSalvager.xhtml"/>
+		</h:panelGrid>
+		<br/><br/><br/>
+		<h:outputText value="Placeholder; hier würde ein erklärender Text hinkommen, was die Website eigentlich überhaupt ist"/>
+	</h:form>
+</h:body>
+</html>
+

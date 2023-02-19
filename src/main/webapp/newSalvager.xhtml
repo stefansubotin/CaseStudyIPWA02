@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Bergende: Registrierung</title>
+</h:head>
+<h:body>
+	<h:outputText value="Bitte füllen Sie das folgende Formular aus:"/><br/>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Name:" for="name"/>
+			<h:inputText id="name" value="#{newSalvagerc.salvager.name}"/>
+			<h:outputText id="errorName" value="#{newSalvagerc.errorName}" style="color: red"/>
+			<h:outputLabel value="Telefonnummer:" for="phone"/>
+			<h:inputText id="phone" value="#{newSalvagerc.salvager.phone}" validator="#{newSalvagerc.validatePhone}"/>			
+			<h:outputText id="errorNum" value="#{newSalvagerc.errorPhone}" style="color: red"/>
+			<h:outputLabel value="Nutzername" for="username" />
+			<h:inputText id="username" value="#{newSalvagerc.salvager.userName}" validator="#{newSalvagerc.validateUser}"/>
+			<h:outputText id="errorUserName" value="#{newSalvagerc.errorUser}" style="color: red"/>
+			<h:outputLabel value="Passwort" for="pass"/>
+                        <h:inputSecret id="pass" value="#{newSalvagerc.salvager.password}"/>
+			<h:outputText id="errorPass" value="#{newSalvagerc.errorPassword}" style="color: red"/>
+		</h:panelGrid>
+		<h:commandLink value="Registrierung abschließen" action="#{newSalvagerc.finishRegistration()}"/><br/>
+		<h:commandLink value="Zurück zur Startseite" action="index.xhtml"/>
+	</h:form>
+</h:body>
+</html>

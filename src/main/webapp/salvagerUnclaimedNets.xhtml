@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Bergende: Nicht zugewiesene Netze</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandLink value="Zurück zur Startseite" action="index.xhtml"/><br/>
+		<h:commandLink value="Meine Geisternetze" action="salvagerMyNets.xhtml"/><br/>
+		<h:commandLink value="Andere zugewiesene Geisternetze" action="salvagerOtherNets.xtmhl"/><br/>
+	</h:form>
+	<h:outputText value="Zu bergende Netze:"/><br/>
+	<h:dataTable var="net" value="#{unclaimedSalvagec.unclaimedNets}" styleClass="net" rowClasses="odd, even">
+		<h:column>
+			<f:facet name="header">Breitengrad</f:facet>
+			<h:outputText value="#{net.latitude}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Längengrad</f:facet>
+			<h:outputText value="#{net.longitude}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Gemeldet von</f:facet>
+			<h:outputText value="#{net.reportedBy}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Telefonnummer</f:facet>
+			<h:outputText value="#{net.reportersPhone}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Beanspruchen</f:facet>
+			<h:form>
+				<h:commandLink value="Claim" action="#{unclaimedSalvagec.claim(net)}"/>
+			</h:form>
+		</h:column>
+	</h:dataTable>
+	<h:outputText value="Vermisste Netze:"/><br/>
+	<h:dataTable var="net" value="#{unclaimedSalvagec.missingNets}" styleClass="net" rowClasses="odd, even">
+		<h:column>
+			<f:facet name="header">Netzname</f:facet>
+			<h:outputText value="#{net.name}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Breitengrad</f:facet>
+			<h:outputText value="#{net.latitude}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Längengrad</f:facet>
+			<h:outputText value="#{net.longitude}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Gemeldet von</f:facet>
+			<h:outputText value="#{net.reportedBy}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Telefonnummer</f:facet>
+			<h:outputText value="#{net.reportersPhone}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Als gefunden markieren</f:facet>
+			<h:form>
+				<h:commandLink value="Found" action="#{unclaimedSalvagec.found(net)}"/>
+			</h:form>
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
