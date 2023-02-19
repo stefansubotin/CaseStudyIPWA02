@@ -21,6 +21,10 @@
 			<f:facet name="header">Längengrad</f:facet>
 			<h:outputText value="#{net.longitude}"/>
 		</h:column>
+            <h:column>
+			<f:facet name="header">Geschätzte Größe</f:facet>
+			<h:outputText value="#{net.estimatedSize}"/>
+		</h:column>
 		<h:column>
 			<f:facet name="header">Beansprucht von</f:facet>
 			<h:outputText value="#{net.salvager.name}"/>
